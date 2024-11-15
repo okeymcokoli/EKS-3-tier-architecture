@@ -1,18 +1,12 @@
-# Deploying an E Commerce Three Tier application on AWS EKS | 8 Services and 2 Databases
+### Deploying an E Commerce Three Tier application on AWS EKS | 8 Services and 2 Databases
 
 Stan's Robot Shop is a sample microservice application you can use as a sandbox to test and learn containerized application orchestration and monitoring techniques.
 
 
-## Table of Contents
-
-- [Deploying an E Commerce Three Tier application on AWS EKS | 8 Services and 2 Databases](#deploying-an-e-commerce-three-tier-application-on-aws-eks--8-services-and-2-databases)
-  - [Table of Contents](#table-of-contents)
-    - [Prerequisites](#prerequisites)
-    - [Getting Started](#getting-started)
-    - [Endpoints](#endpoints)
-    - [Credits](#credits)
-  - [Contributing](#contributing)
-    - [Happy Learning!](#happy-learning)
+### Table of Contents
+  
+- [Contributing](#contributing)
+  - [Happy Learning!](#happy-learning)
 
 ### Prerequisites
 
