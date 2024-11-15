@@ -5,18 +5,20 @@ Stan's Robot Shop is a sample microservice application you can use as a sandbox 
 
 ## Table of Contents
 
+- [Deploying an E Commerce Three Tier application on AWS EKS | 8 Services and 2 Databases](#deploying-an-e-commerce-three-tier-application-on-aws-eks--8-services-and-2-databases)
+  - [Table of Contents](#table-of-contents)
     - [Prerequisites](#prerequisites)
     - [Getting Started](#getting-started)
     - [Endpoints](#endpoints)
     - [Credits](#credits)
-    - [Contributing](#contributing)
+  - [Contributing](#contributing)
     - [Happy Learning!](#happy-learning)
 
 ### Prerequisites
 
-    - [x] Active Terminal
-    - [x] Installed AWS CLI and Kubectl -(see instructions below)
-    - [x] AInstalled eksctl  -(see instructions below)
+- [x] Active Terminal
+- [x] Installed AWS CLI and Kubectl -(see instructions below)
+- [x] AInstalled eksctl  -(see instructions below)
 
 ### Getting Started
 
@@ -68,11 +70,7 @@ eksctl version
 
     c. Create IAM Role
     ```
-    eksctl create iamserviceaccount --cluster=<your-cluster-name> --namespace=kube-system \
-  --name=aws-load-balancer-controller \
-  --role-name AmazonEKSLoadBalancerControllerRole \
-  --attach-policy-arn=arn:aws:iam::<your-aws-account-id>:policy/AWSLoadBalancerControllerIAMPolicy \
-  --approve
+    eksctl create iamserviceaccount --cluster=<your-cluster-name> --namespace=kube-system --name=aws-load-balancer-controller --role-name AmazonEKSLoadBalancerControllerRole --attach-policy-arn=arn:aws:iam::<your-aws-account-id>:policy/AWSLoadBalancerControllerIAMPolicy --approve
     ```
 
 4. Deploy ALB controller
@@ -89,11 +87,11 @@ eksctl version
    c. Proceed with installation:
    ```
    helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system \
-  --set clusterName=<your-cluster-name> \
-  --set serviceAccount.create=false \
-  --set serviceAccount.name=aws-load-balancer-controller \
-  --set region=<region> \
-  --set vpcId=<your-vpc-id>
+    --set clusterName=<your-cluster-name> \
+    --set serviceAccount.create=false \
+    --set serviceAccount.name=aws-load-balancer-controller \
+    --set region=<region> \
+    --set vpcId=<your-vpc-id>
     ```
     d. Verify that the deployment is successful
     ```
@@ -116,27 +114,30 @@ eksctl version
     ```
 
 6. Install the application
-   a. create a helm namespace
+    a. create a helm namespace
    ```
    kubectl create ns <YOUR-NAMESPACE-NAME>
    ``` 
-cd into the helm folder and 
-   b. Install application using helm
+   
+    b. cd into the helm folder and Install application using helm
    ```
    helm install <app-name> --namespace robot-shop .
    ```
+
     c. verify pods are up and running 
     ```
     kubectl get pods -n <YOUR NAMESPACE-NAME>
     ```
-    d. Expose the application using ingress
-    cd .. <INGRESS.YAML FOLDER> 
+
+    d. Expose the application using ingress. cd .. <INGRESS.YAML FOLDER> 
     ```
     kubectl apply -f ingress.yaml
     ```
+
     This should create ingress for you and provide a DNS for the load balancer for accessing the application externally.
 
 7.  Verify all ALB status is Active on AWS UI or copy the address from running cmd
+   
    ```
    kubectl get ingress -n <YOUR NAMESPACE-NAME>
    ``` 
