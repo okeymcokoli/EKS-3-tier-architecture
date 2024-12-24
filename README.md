@@ -16,7 +16,7 @@ Stan's Robot Shop is a sample microservice application you can use as a sandbox 
 
 - [x] Active Terminal
 - [x] Installed AWS CLI and Kubectl -(see instructions below)
-- [x] AInstalled eksctl  -(see instructions below)
+- [x] Installed eksctl  -(see instructions below)
 
 ### Getting Started
 
